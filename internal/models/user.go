@@ -3,7 +3,7 @@ package models
 import (
 	"errors"
 
-	"github.com/HellstromIT/auth/cmd/authservice/internal/crypt"
+	"github.com/HellstromIT/authservice/internal/crypt"
 	"github.com/badoux/checkmail"
 )
 

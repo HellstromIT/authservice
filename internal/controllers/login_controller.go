@@ -4,10 +4,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/HellstromIT/auth/cmd/authservice/internal/crypt"
-	"github.com/HellstromIT/auth/cmd/authservice/internal/models"
-	"github.com/HellstromIT/auth/cmd/authservice/internal/service"
-	"github.com/HellstromIT/auth/cmd/authservice/pkg/auth"
+	"github.com/HellstromIT/authservice/internal/crypt"
+	"github.com/HellstromIT/authservice/internal/models"
+	"github.com/HellstromIT/authservice/internal/service"
+	"github.com/HellstromIT/authservice/pkg/auth"
 	"github.com/gin-gonic/gin"
 )
 

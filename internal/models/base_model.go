@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/HellstromIT/auth/cmd/authservice/pkg/auth"
+	"github.com/HellstromIT/authservice/pkg/auth"
 	"gorm.io/gorm"
 )
 

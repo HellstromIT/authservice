@@ -3,8 +3,8 @@ package app
 import (
 	"log"
 
-	"github.com/HellstromIT/auth/cmd/authservice/internal/config"
-	"github.com/HellstromIT/auth/cmd/authservice/internal/models"
+	"github.com/HellstromIT/authservice/internal/config"
+	"github.com/HellstromIT/authservice/internal/models"
 	"github.com/gin-gonic/gin"
 )
 

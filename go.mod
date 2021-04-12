@@ -1,4 +1,4 @@
-module github.com/HellstromIT/auth/cmd/authservice
+module github.com/HellstromIT/authservice
 
 go 1.16
 

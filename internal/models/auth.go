@@ -3,7 +3,7 @@ package models
 import (
 	"fmt"
 
-	"github.com/HellstromIT/auth/cmd/authservice/pkg/auth"
+	"github.com/HellstromIT/authservice/pkg/auth"
 	"github.com/gofrs/uuid"
 )
 

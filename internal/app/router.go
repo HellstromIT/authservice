@@ -1,9 +1,9 @@
 package app
 
 import (
-	"github.com/HellstromIT/auth/cmd/authservice/internal/config"
-	"github.com/HellstromIT/auth/cmd/authservice/internal/controllers"
-	"github.com/HellstromIT/auth/cmd/authservice/internal/middlewares"
+	"github.com/HellstromIT/authservice/internal/config"
+	"github.com/HellstromIT/authservice/internal/controllers"
+	"github.com/HellstromIT/authservice/internal/middlewares"
 )
 
 func route(c *config.Config) {

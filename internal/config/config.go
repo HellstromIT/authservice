@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/HellstromIT/auth/cmd/authservice/internal/database"
+	"github.com/HellstromIT/authservice/internal/database"
 	"github.com/kelseyhightower/envconfig"
 	"gopkg.in/yaml.v3"
 	"gorm.io/gorm"

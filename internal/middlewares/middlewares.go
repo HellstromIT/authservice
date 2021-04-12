@@ -3,8 +3,8 @@ package middlewares
 import (
 	"net/http"
 
-	"github.com/HellstromIT/auth/cmd/authservice/internal/config"
-	"github.com/HellstromIT/auth/cmd/authservice/pkg/auth"
+	"github.com/HellstromIT/authservice/internal/config"
+	"github.com/HellstromIT/authservice/pkg/auth"
 	"github.com/gin-gonic/gin"
 )
 

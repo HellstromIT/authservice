@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/HellstromIT/auth/cmd/authservice/internal/models"
-	"github.com/HellstromIT/auth/cmd/authservice/pkg/auth"
+	"github.com/HellstromIT/authservice/internal/models"
+	"github.com/HellstromIT/authservice/pkg/auth"
 	"github.com/gin-gonic/gin"
 )
 
