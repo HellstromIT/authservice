@@ -22,7 +22,7 @@ func CreateToken(authD AuthDetails, jwt_secret *string) (string, error) {
 	claims["auth_uuid"] = authD.AuthUuid
 	claims["user_id"] = authD.UserId
 	claims["admin"] = authD.Admin
-	claims["expires"] = authD.Expires
+	claims["exp"] = authD.Expires
 	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
 	return token.SignedString([]byte(*jwt_secret))
 }
@@ -86,7 +86,7 @@ func ExtractTokenAuth(r *http.Request, jwt_secret *string) (*AuthDetails, error)
 		if err != nil {
 			return nil, err
 		}
-		expires, err := strconv.ParseInt(fmt.Sprintf("%.f", claims["expires"]), 10, 64)
+		expires, err := strconv.ParseInt(fmt.Sprintf("%.f", claims["exp"]), 10, 64)
 		if err != nil {
 			return nil, err
 		}

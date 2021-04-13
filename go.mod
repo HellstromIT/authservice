@@ -3,7 +3,7 @@ module github.com/HellstromIT/authservice
 go 1.16
 
 require (
-	github.com/HellstromIT/authservice/pkg/auth v0.0.0-20210412182113-2fb786905b69
+	github.com/HellstromIT/authservice/pkg/auth v0.1.1
 	github.com/badoux/checkmail v1.2.1
 	github.com/gin-gonic/gin v1.7.1
 	github.com/gofrs/uuid v3.2.0+incompatible
