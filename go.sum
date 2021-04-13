@@ -1,6 +1,6 @@
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
-github.com/HellstromIT/authservice/pkg/auth v0.1.1 h1:Vq0ZjsssqZC6b9eOVXZJPo+Om+vmTReQai3w4PKZADo=
-github.com/HellstromIT/authservice/pkg/auth v0.1.1/go.mod h1:gE0gUucUSmkTHxInI7hfoF9QqnoDTaN3/xx3nBYu/pI=
+github.com/HellstromIT/authservice/pkg/auth v0.1.2 h1:cFCP80swlB0+z1saHJ4Er5UstpfG9BAgp1DXDBNONQg=
+github.com/HellstromIT/authservice/pkg/auth v0.1.2/go.mod h1:gE0gUucUSmkTHxInI7hfoF9QqnoDTaN3/xx3nBYu/pI=
 github.com/badoux/checkmail v1.2.1 h1:TzwYx5pnsV6anJweMx2auXdekBwGr/yt1GgalIx9nBQ=
 github.com/badoux/checkmail v1.2.1/go.mod h1:XroCOBU5zzZJcLvgwU15I+2xXyCdTWXyR9MGfRhBYy0=
 github.com/cockroachdb/apd v1.1.0 h1:3LFP3629v+1aKXU5Q37mxmRxX/pIu1nijXydLShEq5I=
