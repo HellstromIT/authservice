@@ -13,6 +13,7 @@ type AuthDetails struct {
 	AuthUuid string
 	UserId   uint64
 	Admin    int64
+	Expires  int64
 }
 
 func CreateToken(authD AuthDetails, jwt_secret *string) (string, error) {
@@ -21,6 +22,7 @@ func CreateToken(authD AuthDetails, jwt_secret *string) (string, error) {
 	claims["auth_uuid"] = authD.AuthUuid
 	claims["user_id"] = authD.UserId
 	claims["admin"] = authD.Admin
+	claims["expires"] = authD.Expires
 	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
 	return token.SignedString([]byte(*jwt_secret))
 }
@@ -81,7 +83,10 @@ func ExtractTokenAuth(r *http.Request, jwt_secret *string) (*AuthDetails, error)
 			return nil, err
 		}
 		admin, err := strconv.ParseInt(fmt.Sprintf("%.f", claims["admin"]), 10, 64)
-		// admin, ok := claims["admin"].(int)
+		if err != nil {
+			return nil, err
+		}
+		expires, err := strconv.ParseInt(fmt.Sprintf("%.f", claims["expires"]), 10, 64)
 		if err != nil {
 			return nil, err
 		}
@@ -89,6 +94,7 @@ func ExtractTokenAuth(r *http.Request, jwt_secret *string) (*AuthDetails, error)
 			AuthUuid: authUuid,
 			UserId:   userId,
 			Admin:    admin,
+			Expires:  expires,
 		}, nil
 	}
 	return nil, err

@@ -3,6 +3,7 @@ package controllers
 import (
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/HellstromIT/authservice/internal/crypt"
 	"github.com/HellstromIT/authservice/internal/models"
@@ -47,6 +48,7 @@ func Login(c *gin.Context) {
 	authD.UserId = authData.UserID
 	authD.AuthUuid = authData.AuthUUID
 	authD.Admin = user.Admin
+	authD.Expires = time.Now().Add(time.Minute * 15).Unix()
 
 	token, loginErr := service.Authorize.SignIn(authD, &jwt_secret)
 	if loginErr != nil {

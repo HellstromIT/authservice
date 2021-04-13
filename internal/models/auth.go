@@ -1,7 +1,7 @@
 package models
 
 import (
-	"fmt"
+	"time"
 
 	"github.com/HellstromIT/authservice/pkg/auth"
 	"github.com/gofrs/uuid"
@@ -12,6 +12,7 @@ type Auth struct {
 	UserID   uint64 `gorm:";not null;" json:"user_id"`
 	AuthUUID string `gorm:"size:255;not null;" json:"auth_uuid"`
 	Admin    int64  `gorm:"default:0", json:"admin"`
+	Expires  int64  `gorm:";not_null;", json:"expires"`
 }
 
 func (s *Server) FetchAuth(authD *auth.AuthDetails) (*Auth, error) {
@@ -40,6 +41,7 @@ func (s *Server) CreateAuth(userId uint64) (*Auth, error) {
 	}
 	au.AuthUUID = uuid.String()
 	au.UserID = userId
+	au.Expires = time.Now().Add(time.Minute * 15).Unix()
 	err = s.DB.Debug().Create(&au).Error
 	if err != nil {
 		return nil, err
@@ -48,7 +50,6 @@ func (s *Server) CreateAuth(userId uint64) (*Auth, error) {
 }
 
 func (s *Server) IsAdmin(authD *auth.AuthDetails) bool {
-	fmt.Println("IsAdmin executing")
 	if authD.Admin == 1 {
 		return true
 	}

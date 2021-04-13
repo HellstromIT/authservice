@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/HellstromIT/authservice/internal/models"
@@ -21,7 +20,6 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 
-	fmt.Println(au.Admin)
 	if !models.Model.IsAdmin(au) {
 		c.JSON(http.StatusUnauthorized, "unauthorized")
 		return
