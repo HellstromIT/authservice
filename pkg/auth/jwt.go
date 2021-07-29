@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"gopkg.in/dgrijalva/jwt-go.v3"
+	"github.com/golang-jwt/jwt"
 )
 
 type AuthDetails struct {
