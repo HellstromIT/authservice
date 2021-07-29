@@ -8,9 +8,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func TokenAuthMiddleware(jwt_secret string) gin.HandlerFunc {
+func TokenAuthMiddleware(jwtSecret string) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		err := auth.TokenValid(c.Request, &jwt_secret)
+		err := auth.TokenValid(c.Request, &jwtSecret)
 		if err != nil {
 			c.JSON(http.StatusUnauthorized, "You need to be authorized to access this route")
 			c.Abort()
@@ -20,9 +20,9 @@ func TokenAuthMiddleware(jwt_secret string) gin.HandlerFunc {
 	}
 }
 
-func JwtSecretMiddleware(jwt_secret string) gin.HandlerFunc {
+func JwtSecretMiddleware(jwtSecret string) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.Set("JWT_SECRET", jwt_secret)
+		c.Set("JWT_SECRET", jwtSecret)
 		c.Next()
 	}
 }

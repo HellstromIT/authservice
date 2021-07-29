@@ -14,8 +14,8 @@ import (
 
 func Login(c *gin.Context) {
 
-	jwt_secret := c.Keys["JWT_SECRET"].(string)
-	if jwt_secret == "" {
+	jwtSecret := c.Keys["JWT_SECRET"].(string)
+	if jwtSecret == "" {
 		c.JSON(http.StatusInternalServerError, "Please try again")
 	}
 	var u models.User
@@ -50,7 +50,7 @@ func Login(c *gin.Context) {
 	authD.Admin = user.Admin
 	authD.Expires = time.Now().Add(time.Minute * 15).Unix()
 
-	token, loginErr := service.Authorize.SignIn(authD, &jwt_secret)
+	token, loginErr := service.Authorize.SignIn(authD, &jwtSecret)
 	if loginErr != nil {
 		c.JSON(http.StatusForbidden, "Please try to login again")
 		return
@@ -61,11 +61,11 @@ func Login(c *gin.Context) {
 }
 
 func LogOut(c *gin.Context) {
-	jwt_secret := c.Keys["JWT_SECRET"].(string)
-	if jwt_secret == "" {
+	jwtSecret := c.Keys["JWT_SECRET"].(string)
+	if jwtSecret == "" {
 		c.JSON(http.StatusInternalServerError, "Please try again")
 	}
-	au, err := auth.ExtractTokenAuth(c.Request, &jwt_secret)
+	au, err := auth.ExtractTokenAuth(c.Request, &jwtSecret)
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, "unauthorized")
 		return
