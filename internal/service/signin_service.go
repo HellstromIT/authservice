@@ -14,8 +14,8 @@ var (
 	Authorize signInInterface = &signInStruct{}
 )
 
-func (si *signInStruct) SignIn(authD auth.AuthDetails, jwt_token *string) (string, error) {
-	token, err := auth.CreateToken(authD, jwt_token)
+func (si *signInStruct) SignIn(authD auth.AuthDetails, jwtToken *string) (string, error) {
+	token, err := auth.CreateToken(authD, jwtToken)
 	if err != nil {
 		return "", err
 	}
