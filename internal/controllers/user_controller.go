@@ -9,12 +9,12 @@ import (
 )
 
 func CreateUser(c *gin.Context) {
-	jwt_secret := c.Keys["JWT_SECRET"].(string)
-	if jwt_secret == "" {
+	jwtSecret := c.Keys["JWT_SECRET"].(string)
+	if jwtSecret == "" {
 		c.JSON(http.StatusInternalServerError, "Please try again")
 		return
 	}
-	au, err := auth.ExtractTokenAuth(c.Request, &jwt_secret)
+	au, err := auth.ExtractTokenAuth(c.Request, &jwtSecret)
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, "unauthorized")
 		return

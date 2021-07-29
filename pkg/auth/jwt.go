@@ -16,7 +16,7 @@ type AuthDetails struct {
 	Expires  int64
 }
 
-func CreateToken(authD AuthDetails, jwt_secret *string) (string, error) {
+func CreateToken(authD AuthDetails, jwtSecret *string) (string, error) {
 	claims := jwt.MapClaims{}
 	claims["authorized"] = true
 	claims["auth_uuid"] = authD.AuthUuid
@@ -24,11 +24,11 @@ func CreateToken(authD AuthDetails, jwt_secret *string) (string, error) {
 	claims["admin"] = authD.Admin
 	claims["exp"] = authD.Expires
 	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
-	return token.SignedString([]byte(*jwt_secret))
+	return token.SignedString([]byte(*jwtSecret))
 }
 
-func TokenValid(r *http.Request, jwt_secret *string) error {
-	token, err := VerifyToken(r, jwt_secret)
+func TokenValid(r *http.Request, jwtSecret *string) error {
+	token, err := VerifyToken(r, jwtSecret)
 	if err != nil {
 		return err
 	}
@@ -39,13 +39,13 @@ func TokenValid(r *http.Request, jwt_secret *string) error {
 }
 
 // VerifyToken
-func VerifyToken(r *http.Request, jwt_secret *string) (*jwt.Token, error) {
+func VerifyToken(r *http.Request, jwtSecret *string) (*jwt.Token, error) {
 	tokenString := ExtractToken(r)
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("Signing method error: %v", token.Header["alg"])
 		}
-		return []byte(*jwt_secret), nil
+		return []byte(*jwtSecret), nil
 	})
 	if err != nil {
 		return nil, err
@@ -67,8 +67,8 @@ func ExtractToken(r *http.Request) string {
 	return ""
 }
 
-func ExtractTokenAuth(r *http.Request, jwt_secret *string) (*AuthDetails, error) {
-	token, err := VerifyToken(r, jwt_secret)
+func ExtractTokenAuth(r *http.Request, jwtSecret *string) (*AuthDetails, error) {
+	token, err := VerifyToken(r, jwtSecret)
 	if err != nil {
 		return nil, err
 	}
