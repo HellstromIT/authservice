@@ -5,7 +5,7 @@ go 1.16
 require (
 	github.com/HellstromIT/authservice/pkg/auth v0.2.0
 	github.com/badoux/checkmail v1.2.1
-	github.com/gin-gonic/gin v1.7.3
+	github.com/gin-gonic/gin v1.7.4
 	github.com/gofrs/uuid v3.4.0+incompatible
 	github.com/kelseyhightower/envconfig v1.4.0
 	golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2
