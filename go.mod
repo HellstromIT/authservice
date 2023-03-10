@@ -8,9 +8,11 @@ require (
 	github.com/gin-gonic/gin v1.7.4
 	github.com/gofrs/uuid v3.4.0+incompatible
 	github.com/kelseyhightower/envconfig v1.4.0
-	golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
-	gorm.io/driver/postgres v1.1.0
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/modern-go/reflect2 v1.0.1 // indirect
+	golang.org/x/crypto v0.6.0
+	gopkg.in/yaml.v3 v3.0.1
+	gorm.io/driver/postgres v1.5.0
 	gorm.io/driver/sqlite v1.1.4
-	gorm.io/gorm v1.21.14
+	gorm.io/gorm v1.24.7-0.20230306060331-85eaf9eeda11
 )
